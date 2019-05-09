@@ -2,8 +2,12 @@
 
 import discord
 
+
+
 client = discord.Client()
 prefix = '!'
+
+
 @client.event
 async def on_ready():
     print('logged in as {0.user}'.format(client))
@@ -12,7 +16,7 @@ async def on_ready():
 async def on_message(message):
 
     id = client.get_guild(568510509310279720)
-    
+
     if message.author == client.user:
         return
 
@@ -23,7 +27,11 @@ async def on_message(message):
         
         await message.channel.send(id.member_count)
 
-
+@client.event
+async def on_member_join(member):
+    for channel in member.server.channels:
+        if str(channel) == "lobby": # We check to make sure we are sending the message in the general channel
+            await client.send_message(f"""Welcome to the NKD server {member.mention}""")
 
     
 
