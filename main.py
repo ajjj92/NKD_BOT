@@ -231,4 +231,4 @@ async def echo(ctx, message):
 bot.add_cog(Music(bot))
 
 
-bot.run('NTc1NzIzOTgzMzkyMjEwOTUy.XNMH3A.BOzTVp3EyxU71GAlP4fRysv9YEc')
+bot.run('')
